@@ -61,12 +61,18 @@ typedef struct _LowerHalfInfo
   MPI_Group MANA_GROUP_NULL;
   MPI_Comm MANA_COMM_NULL;
   MPI_Request MANA_REQUEST_NULL;
+  #ifdef MPI_Message
   MPI_Message MANA_MESSAGE_NULL;
+  #endif
   MPI_Op MANA_OP_NULL;
   MPI_Errhandler MANA_ERRHANDLER_NULL;
   MPI_Info MANA_INFO_NULL;
+  #ifdef MPI_Win
   MPI_Win MANA_WIN_NULL;
+  #endif
+  #ifdef MPI_File
   MPI_File MANA_FILE_NULL;
+  #endif
   MPI_Info MANA_INFO_ENV;
   MPI_Comm MANA_COMM_WORLD;
   MPI_Comm MANA_COMM_SELF;
