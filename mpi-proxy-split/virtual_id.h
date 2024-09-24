@@ -26,7 +26,9 @@ typedef union {
   MPI_Request request;
   MPI_Op op;
   MPI_Datatype datatype;
+  #ifdef MPI_File
   MPI_File file;
+  #endif
 } mana_handle;
 
 typedef struct {
@@ -81,8 +83,9 @@ MPI_Group new_virt_group(MPI_Group real_group);
 MPI_Op new_virt_op(MPI_Op real_op);
 MPI_Datatype new_virt_datatype(MPI_Datatype real_datatype);
 MPI_Request new_virt_request(MPI_Request real_request);
+#ifdef MPI_File
 MPI_File new_virt_file(MPI_File real_request);
-
+#endif
 int is_predefined_id(mana_handle id);
 mana_handle add_virt_id(mana_handle real_id, void *desc, int kind);
 virt_id_entry* get_virt_id_entry(mana_handle virt_id);
